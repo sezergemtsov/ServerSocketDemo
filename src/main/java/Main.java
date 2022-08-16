@@ -12,11 +12,12 @@ public class Main {
         int port = 80;
         String name = null;
 
-        try (ServerSocket serverSocket = new ServerSocket(port)) {
 
-            Socket clientSocket = serverSocket.accept(); // ждем подключения
-            PrintWriter out = new PrintWriter(clientSocket.getOutputStream(), true);
-            BufferedReader in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
+        try (ServerSocket serverSocket = new ServerSocket(port);
+             Socket clientSocket = serverSocket.accept();
+             PrintWriter out = new PrintWriter(clientSocket.getOutputStream(), true);
+             BufferedReader in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()))) {
+
             System.out.println("New connection accepted");
 
             while (true) {

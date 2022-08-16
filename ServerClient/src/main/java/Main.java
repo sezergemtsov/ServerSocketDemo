@@ -9,10 +9,9 @@ public class Main {
         String host = "netology.homework";
         int port = 80;
 
-        try (Socket clientSocket = new Socket(host, port)) {
-
-            PrintWriter out = new PrintWriter(clientSocket.getOutputStream(), true);
-            BufferedReader in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
+        try (Socket clientSocket = new Socket(host, port);
+             PrintWriter out = new PrintWriter(clientSocket.getOutputStream(), true);
+             BufferedReader in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()))) {
 
             out.println("access/request to connect");
 
